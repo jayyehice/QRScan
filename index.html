@@ -95,7 +95,7 @@
             el: '#Webapp',
             data: {
                 scanner: null,
-                activeCameraId: 1,
+                activeCameraId: "D8A9D233421992CD7CA3D17FFC319E6E22ACC35D",
                 cameras: [],
                 scans: [],
                 scan_data: [],
@@ -138,6 +138,7 @@
                     return name || '(unknown)';
                 },
                 selectCamera: function (camera) {
+                    console.log(camera);
                     this.activeCameraId = camera.id;
                     this.scanner.start(camera);
                 }
