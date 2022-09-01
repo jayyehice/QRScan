@@ -118,9 +118,9 @@
                     self.cameras = cameras;
                     // console.log(cameras);
                     if (cameras.length > 0) {
-                        self.activeCameraId = cameras[0].id;
-                        self.activeCameraName = cameras[0].name;
-                        self.scanner.start(cameras[0]);
+                        self.activeCameraId = cameras[1].id;
+                        self.activeCameraName = cameras[1].name;
+                        self.scanner.start(cameras[1]);
 
                     } else {
                         console.error('沒找到相機元素!!');
