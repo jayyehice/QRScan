@@ -8,8 +8,8 @@
     <title>Document</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"
         charset="utf8"></script>
-    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
-        charset="utf8"></script>
+
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" charset="utf8"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous" charset="utf8"></script>
@@ -103,20 +103,10 @@
                 self.scanner = new Instascan.Scanner({continuous: true, video: document.getElementById('preview'), mirror: true, scanPeriod: 5 });
                 self.scanner.addListener('scan', (content, image) => {
                     this.scan_data.push(content);
-                    // console.log(content.split(","));
-                    // alert(content.split(","));
-                    // self.scans.unshift({ date: +(Date.now()), content: content });
-                    // if (content.indexOf('isyou.org') > -1) {
-                    //     document.getElementById("meL").href = content;
-                    //     document.getElementById("meL").click();
-                    // } else {
-                    //     alert("QRcode 可能不正確!!");
-                    //     exit;
-                    // }
                 });
                 Instascan.Camera.getCameras().then(function (cameras) {
                     self.cameras = cameras;
-                    // console.log(cameras);
+                    
                     if (cameras.length > 0) {
                         self.activeCameraId = cameras[1].id;
                         self.activeCameraName = cameras[1].name;
