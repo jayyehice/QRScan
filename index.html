@@ -77,6 +77,11 @@
 
         <section>
             <ul>
+                <li v-for="c in cameras">
+                    <h5>{{c}}</h5>
+                </li>
+            </ul>
+            <ul>
                 <li v-for="data in scan_data">
                     <h5>{{data}}</h5>
                 </li>
@@ -94,6 +99,7 @@
                 cameras: [],
                 scans: [],
                 scan_data: [],
+                
             },
             mounted: function () {
                 var self = this;
@@ -113,6 +119,7 @@
                 });
                 Instascan.Camera.getCameras().then(function (cameras) {
                     self.cameras = cameras;
+                    console.log(cameras);
                     if (cameras.length > 0) {
                         self.activeCameraId = cameras[1].id;
                         self.scanner.start(cameras[1]);
