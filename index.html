@@ -26,8 +26,8 @@
 
         .preview-container {
 
-            /* width: 300px; */
-            /* height: 300px; */
+            width: 300px;
+            height: 300px;
             overflow: hidden;
             border: 3px dotted #ccc;
             margin: 0px auto;
@@ -76,12 +76,7 @@
         </section>
 
         <section>
-            <ul>
-                <li v-for="c in cameras">
-                    <h5>{{c.id}}</h5>
-                    <h5 @click="selectCamera(c)">{{c.name}}切換</h5>
-                </li>
-            </ul>
+            <h5>目前鏡頭為</h5>
             <ul>
                 <li v-for="data in scan_data">
                     <h5>{{data}}</h5>
@@ -96,7 +91,8 @@
             el: '#Webapp',
             data: {
                 scanner: null,
-                activeCameraId: "D8A9D233421992CD7CA3D17FFC319E6E22ACC35D",
+                activeCameraName: "",
+                activeCameraId: 1,
                 cameras: [],
                 scans: [],
                 scan_data: [],
@@ -120,10 +116,11 @@
                 });
                 Instascan.Camera.getCameras().then(function (cameras) {
                     self.cameras = cameras;
-                    console.log(cameras);
+                    // console.log(cameras);
                     if (cameras.length > 0) {
-                        self.activeCameraId = cameras[1].id;
-                        self.scanner.start(cameras[1]);
+                        self.activeCameraId = cameras[0].id;
+                        self.activeCameraName = cameras[0].name;
+                        self.scanner.start(cameras[0]);
 
                     } else {
                         console.error('沒找到相機元素!!');
@@ -139,9 +136,10 @@
                     return name || '(unknown)';
                 },
                 selectCamera(camera) {
-                    console.log(camera);
+                    // console.log(camera);
                     this.activeCameraId = camera.id;
                     this.scanner.start(camera);
+                    this.activeCameraName = camera.name;
                 }
             }
         });
