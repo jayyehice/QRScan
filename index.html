@@ -57,7 +57,7 @@
                   </span>*/?> -->
                 <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
                     <a @click.stop="selectCamera(camera)" class="btn btn-info  text-white  btn-lg">
-                        <i class="fas fa-camera-retro"></i> 切換鏡頭</a>
+                        <i class="fas fa-camera-retro"></i> {{camera.name}}切換鏡頭</a>
                 </span>
             </span>
         </section>
@@ -78,7 +78,8 @@
         <section>
             <ul>
                 <li v-for="c in cameras">
-                    <h5>{{c}}</h5>
+                    <h5>{{c.id}}</h5>
+                    <h5 @click="selectCamera(c)">{{c.name}}切換</h5>
                 </li>
             </ul>
             <ul>
@@ -137,7 +138,7 @@
                 formatName: function (name) {
                     return name || '(unknown)';
                 },
-                selectCamera: function (camera) {
+                selectCamera(camera) {
                     console.log(camera);
                     this.activeCameraId = camera.id;
                     this.scanner.start(camera);
