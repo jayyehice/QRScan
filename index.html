@@ -97,7 +97,7 @@
             },
             mounted: function () {
                 var self = this;
-                self.scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: true, scanPeriod: 5 });
+                self.scanner = new Instascan.Scanner({continuous: true, video: document.getElementById('preview'), mirror: true, scanPeriod: 5 });
                 self.scanner.addListener('scan', (content, image) => {
                     this.scan_data.push(content);
                     // console.log(content.split(","));
@@ -122,6 +122,7 @@
                     }
                 }).catch(function (e) {
                     console.error(e);
+                    // console.log(e);
                 });
             },
 
