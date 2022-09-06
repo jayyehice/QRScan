@@ -1,13 +1,16 @@
 
 .qrscanner{
-    margin: 50px 0;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin: 50px auto;
 }
 
 .qrscanner video {
-    max-width: 250px;
-    max-height: 250px;
-    display: block;
-    margin: 0 auto;
+    /* max-width: 250px; */
+    /* max-height: 250px; */
+    /* display: block; */
+    /* margin: 0 auto; */
 }
 
 .row-element-set {
@@ -26,8 +29,8 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 
 .form-field-caption {

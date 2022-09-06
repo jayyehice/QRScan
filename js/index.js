@@ -6,7 +6,7 @@ function onQRCodeScanned(scannedText) {
     }
     var scannedTextMemoHist = document.getElementById("scannedTextMemoHist");
     if (scannedTextMemoHist) {
-        scannedTextMemoHist.value = scannedTextMemoHist.value + '\n' + scannedText;
+        scannedTextMemoHist.value = scannedTextMemoHist.value + '\n\n' + scannedText;
     }
 }
 
@@ -17,8 +17,8 @@ function provideVideo() {
         return n.mediaDevices.getUserMedia({
             video: {
                 facingMode: "environment",
-                minAspectRatio: 1.333,
-                minFrameRate: 60,
+                // minAspectRatio: 1.333,
+                // minFrameRate: 60,
                 // width: {max: 300},
                 // heigth: {max: 300},
             },
@@ -69,6 +69,6 @@ function JsQRScannerReady() {
         jbScanner.appendTo(scannerParentElement);
 
         //間隔
-        jbScanner.setScanInterval(2000);
+        jbScanner.setScanInterval(1500);
     }
 }
